@@ -8,6 +8,8 @@ from . import main
 from .. import db
 
 
+
+
 @main.route('/')
 def index():
     return render_template('index.html')
@@ -90,5 +92,3 @@ def blog():
 def logout():
     logout_user()
     return redirect(url_for('main.index'))
-
-
