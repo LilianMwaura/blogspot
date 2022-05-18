@@ -6,7 +6,7 @@ from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user, current_user
 from . import main
 from .. import db
-from ..request import get_quotes
+from ..request import get_quote
 
 
 @main.route('/')
@@ -86,12 +86,16 @@ def blog():
         db.session.commit()
     return render_template('blog.html', form=form)
 
-@main.route('/Post/all', methods=['GET', 'POST'])
-@login_required
-def all():
-    posts = Post.query.all()
-    quote = get_quotes()
-    return render_template('allpost.html', posts=posts, quote=quote)
+@main.route('/quotes')
+def quotes():
+
+    '''
+    '''
+    quote = get_quote()
+    title = 'Blogger | Quotes'
+    
+    return render_template('quotes.html', title = title,quote = quote)
+
 
 @main.route('/logout')
 @login_required

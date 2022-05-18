@@ -1,18 +1,13 @@
 import requests
+from .models import Quote
 
-# getting the post base url
-base_url = None
+url = "http://quotes.stormconsultancy.co.uk/random.json"
 
-
-def configure_request(app):
-    global base_url
-    base_url = app.config['QUOTE_API_BASE_URL']
-
-
-def get_quotes():
+def get_quote():
     """
-    Function that gets the json response to our url request
+    Function to consume http request and return a Quote class instance
     """
-    get_quote_response = requests.get('http://quotes.stormconsultancy.co.uk/random.json').json()
-    print(get_quote_response)
-    return get_quote_response
+    response = requests.get(url).json()
+
+    random_quote = Quote(response.get("author"), response.get("quote"))
+    return random_quote
