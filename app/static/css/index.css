@@ -1,11 +1,11 @@
 .header {
-    font-family: 'Alegreya';
+    font-family: 'Poppins', sans-serif;
     font-weight: bold;
    
 }
 
 p, a {
-    font-family: 'Nunito';
+    font-family: 'Poppins', sans-serif;
     font-weight: bolder;
 }
 
@@ -27,7 +27,7 @@ p, a {
 .btn {
     width: 30%;
     margin: 1%;
-    font-family: 'Nunito';
+    font-family: 'Poppins', sans-serif;
 }
 
 .signup-pic {

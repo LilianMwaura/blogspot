@@ -1,7 +1,7 @@
 from flask import render_template,request,redirect,url_for
 from flask_wtf import FlaskForm
 from .forms import LoginForm, RegisterForm, PostForm, CommentForm
-from ..models import User, Post, Comment
+from ..models import User, Post, Comment, Quote
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user, current_user
 from . import main
@@ -85,7 +85,7 @@ def blog():
         db.session.add(post)
         db.session.commit()
     return render_template('blog.html', form=form)
-    
+
 @main.route('/Post/all', methods=['GET', 'POST'])
 @login_required
 def all():
